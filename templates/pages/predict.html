@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+<div class="row justify-content-center">
+    <h4>Predict Page</h4>
+    <div id="loading">
+        <img src="{{ url_for('static', filename='img/loading.gif') }}" alt="" class="center">
+        <p class="text-center">Predicting...<br>This may take a while.</p>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-4 mr-auto ml-auto">
+    <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}" id="send-params">
+        <div class="form-group">
+            <label for="">Model to use</label>
+            <select name="model" id="" class="form-control">
+                {% for model in models %}
+                <option value="{{ model }}">{{ model }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type=file name=photo class="form-control" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="btn-submit-params">SUBMIT</button>
+        </div>
+        </form>
+        <a href="{{ url_for('result_predict_page') }}">Check previous result</a>
+    </div>
+</div>
+{% endblock %}

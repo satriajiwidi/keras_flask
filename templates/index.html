@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'includes/_head.html' %}
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Keras Conv Nets</h1>
+            <p class="lead">Simple Keras CNN Builder and Predictor</p>
+            <div class="row justify-content-center">
+                <a class="btn btn-secondary btn-index" href="/build">Build</a>
+                <a class="btn btn-secondary btn-index" href="/models">Model Collections</a>
+                <a class="btn btn-success btn-index" href="/predict">Predict</a>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+        <br>
+    </div>
+</body>
+
+
+{% include 'includes/_scripts.html' %}
+
+</html>

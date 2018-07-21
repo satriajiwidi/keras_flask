@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <h4>Models Page</h4>
+</div>
+<div class="row">
+    <div class="col-md-4 ml-auto mr-auto">
+        <ul class="list-group">
+            {% for model in models %}
+            <a href="/models/{{ model.split('.')[0] }}" class="btn btn-link">
+                <li class="list-group-item">{{ model }}</li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

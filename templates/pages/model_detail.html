@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="alert alert-secondary" role="alert">
+    Model <b>{{ model_detail['name'] }}.h5</b>.
+    <br>
+    Created at {{ model_detail['created'] }}.
+    <br>
+    <br>
+    <a href="" class="btn btn-outline-danger btn-sm">delete</a>
+</div>
+<div class="row">
+    <div class="col-md-6 mr-auto">
+        <table class="table">
+            <thead>
+                <th>Params</th>
+                <th>Value</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Activation function</td>
+                    <td>{{ model_params['activation_function'] }}</td>
+                </tr>
+                <tr>
+                    <td>Epochs</td>
+                    <td>{{ model_params['epochs'] }}</td>
+                </tr>
+                <tr>
+                    <td>Learning rate</td>
+                    <td>{{ model_params['lr'] }}</td>
+                </tr>
+                <tr>
+                    <td>Convolution depth</td>
+                    <td>{{ model_params['conv_depth'] }}</td>
+                </tr>
+                <tr>
+                    <td>Batch size</td>
+                    <td>{{ model_params['batch_size'] }}</td>
+                </tr>
+                <tr>
+                    <td>Optimizer</td>
+                    <td>{{ model_params['optimizer'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        {% for img in model_detail['images'] %}
+            <img src="/get-image/1/{{ img }}" alt="" width="100%" height="auto">
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
